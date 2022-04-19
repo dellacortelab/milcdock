@@ -1,0 +1,7 @@
+#ADD DF with targets
+@reni
+#ALDH1
+#ifgr
+#GBA
+
+#only use the cols relevant for input vectors
