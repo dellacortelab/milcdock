@@ -14,6 +14,8 @@ def evaluate(model, dataloader, device, batch_size=32):
     prev_mode = dataloader.dataset.mode
     prev_target = dataloader.dataset.target
 
+    all_preds = []
+    all_labels = []
     model.eval() #use to make predictions
     with torch.no_grad():
         all_t_auc = dict()
@@ -50,10 +52,13 @@ def evaluate(model, dataloader, device, batch_size=32):
             t_ef = calc_ef(pred_vals, label_vals)
             all_t_ef.update({target:t_ef})
             print("Finished evaluating: ", target)
+
+        all_preds.extend(pred_vals)
+        all_labels.extend(label_vals)
         
     dataloader.dataset.set_mode(mode=prev_mode, target=prev_target)
 
-    return {'all_t_auc':all_t_auc, 'all_t_bedroc':all_t_bedroc, 'all_t_ef':all_t_ef}
+    return {'all_preds':all_preds, 'all_labels':all_labels, 'all_t_auc':all_t_auc, 'all_t_bedroc':all_t_bedroc, 'all_t_ef':all_t_ef}
 
 
 def calc_ef(y_pred, y_label, percent=.01):
