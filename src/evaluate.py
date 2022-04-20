@@ -53,8 +53,8 @@ def evaluate(model, dataloader, device, batch_size=32):
             all_t_ef.update({target:t_ef})
             print("Finished evaluating: ", target)
 
-        all_preds.extend(pred_vals)
-        all_labels.extend(label_vals)
+            all_preds.extend(pred_vals)
+            all_labels.extend(label_vals)
         
     dataloader.dataset.set_mode(mode=prev_mode, target=prev_target)
 
