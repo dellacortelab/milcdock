@@ -1,6 +1,6 @@
-<p align="center">
+<!-- <p align="center">
   <img src="https://github.com/dellacortelab/milcdock/blob/main/data/figures/milk.jpg" alt="drawing" width="200"/>
-</p>
+</p> -->
 
 # MILCDock
 
