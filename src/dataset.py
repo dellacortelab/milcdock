@@ -6,8 +6,8 @@ import os
 class DockingDataset(Dataset):
     def __init__(self, data_path):
         if not os.path.exists(data_path):
-            os.makedirs(os.dirname(data_path), exist_ok=True)
-            os.system('curl -L https://byu.box.com/shared/static/90iyu2y8416pwyxqcec5il63w90pz45x --out {data_path}')
+            os.makedirs(os.path.dirname(data_path), exist_ok=True)
+            os.system(f'curl -L https://byu.box.com/shared/static/90iyu2y8416pwyxqcec5il63w90pz45x --output {data_path}')
         self.df = pd.read_pickle(data_path)
         self.mode = 'full_data'
         self.target = None
