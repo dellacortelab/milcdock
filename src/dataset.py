@@ -8,9 +8,9 @@ class DockingDataset(Dataset):
         if not os.path.exists(data_path):
             os.makedirs(os.path.dirname(data_path), exist_ok=True)
             if os.path.basename(data_path) == 'test_data.pkl':
-                uri = https://byu.box.com/shared/static/90iyu2y8416pwyxqcec5il63w90pz45x
+                uri = 'https://byu.box.com/shared/static/90iyu2y8416pwyxqcec5il63w90pz45x'
             elif os.path.basename(data_path) == 'test_data_2.pkl':
-                uri = https://byu.box.com/shared/static/5u4vaqtregam8sfidjij4h7tm7x35j62
+                uri = 'https://byu.box.com/shared/static/5u4vaqtregam8sfidjij4h7tm7x35j62'
             os.system(f'curl -L {uri} --output {data_path}')
         self.df = pd.read_pickle(data_path)
         self.mode = 'full_data'
