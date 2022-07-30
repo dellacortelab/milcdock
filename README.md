@@ -11,3 +11,7 @@ MILCDock is an consensus docking neural network for virtual screening and drug d
 Try out the MILCDock model here:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dellacortelab/milcdock/blob/main/src/milc_dock_eval.ipynb)
 
+Or, for an example, run:
+```
+python3 run_evaluation.py
+```

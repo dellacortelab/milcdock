@@ -11,7 +11,7 @@ class DockingDataset(Dataset):
                 uri = 'https://byu.box.com/shared/static/90iyu2y8416pwyxqcec5il63w90pz45x'
             elif os.path.basename(data_path) == 'test_data_2.pkl':
                 uri = 'https://byu.box.com/shared/static/5u4vaqtregam8sfidjij4h7tm7x35j62'
-            os.system(f'curl -L {uri} --output {data_path}')
+            os.system(f'wget {uri} -O {data_path}')
         self.df = pd.read_pickle(data_path)
         self.mode = 'full_data'
         self.target = None
@@ -28,7 +28,7 @@ class DockingDataset(Dataset):
         self.current_df = self.current_df.reset_index(drop=True)
 
     def __getitem__(self, i):
-        item = self.current_df.iloc[i, 3:-1]
+        item = self.current_df.iloc[i, 3:55]
         label = self.current_df.iloc[i, -1]
         item, label = np.array(item).astype(np.float32), np.array(label).astype(np.float32)
         return item, label

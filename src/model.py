@@ -85,8 +85,6 @@ class DockingClassifier(nn.Module):
             nn.Linear(width, output_dim)
         )
 
-        # train_dataset_statistics['mean'], train_dataset_statistics['std'] = torch.tensor(train_dataset_statistics['mean']), torch.tensor(train_dataset_statistics['std'])
-        # self.train_dataset_statistics = train_dataset_statistics
         self.register_buffer('train_data_mean', train_dataset_statistics['mean'])
         self.register_buffer('train_data_std', train_dataset_statistics['std'])
 
