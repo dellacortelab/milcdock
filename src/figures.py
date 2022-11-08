@@ -32,16 +32,16 @@ def make_hist(preds, labels, receptors):
 
     colors = ['blue', 'orange']
 
+    label_1 = 'Decoys'
+    label_2 = 'Actives'
+    label_3 = 'Precision'
+    label_4 = 'Recall'
+
+    num_bin = 30
     for i, targ in enumerate(target_list):
             
         targ_preds, targ_labels = preds[receptors == targ], labels[receptors == targ]
-        
-        label_1 = 'Decoys'
-        label_2 = 'Actives'
-        label_3 = 'Precision'
-        label_4 = 'Recall'
-            
-        num_bin = 30
+
         bin_lims = np.linspace(0,1,num_bin+1)
         bin_centers = 0.5*(bin_lims[:-1]+bin_lims[1:])
         bin_widths = (bin_lims[1:]-bin_lims[:-1])/2
@@ -56,15 +56,15 @@ def make_hist(preds, labels, receptors):
         axs[0, i].set_xlabel('MLC Score')
 
         axs[0, i].set_title(targ)
-        
+
         thresholds, precisions, recalls = get_prec_rec(scores=targ_preds, labels=targ_labels)
         axs[1, i].plot(thresholds, precisions, color='C2', label=label_3)
         axs[1, i].plot(thresholds, recalls, color='C3', label=label_4)
         axs[1, i].set_xlabel('Score Threshold')
-        
+
         axs[0, i].spines['top'].set_visible(False)
         ax2.spines['top'].set_visible(False)
-        
+
         ax2.spines['right'].set_color('C1')
         ax2.spines['left'].set_color('C0')
         axs[0, i].tick_params(axis='y', colors='C0')
@@ -72,7 +72,7 @@ def make_hist(preds, labels, receptors):
 
         axs[1, i].spines['top'].set_visible(False)
         axs[1, i].spines['right'].set_visible(False)
-        
+
         if i == 2:
             axs[1,i].legend()
 

@@ -24,7 +24,7 @@ class DockingDataset(Dataset):
         elif mode == 'single_target':
             self.target = target
             self.current_df = self.df.loc[self.df['receptor'] == target]
-        
+
         self.current_df = self.current_df.reset_index(drop=True)
 
     def __getitem__(self, i):
@@ -40,10 +40,6 @@ class DockingDataset(Dataset):
 def get_dataloader(batch_size=32, **kwargs):
 
     dataset = DockingDataset(**kwargs)
-    loader = DataLoader(
-        dataset,
-        batch_size=batch_size,
-        num_workers=2,
-        pin_memory=True
+    return DataLoader(
+        dataset, batch_size=batch_size, num_workers=2, pin_memory=True
     )
-    return loader

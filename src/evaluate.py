@@ -18,9 +18,9 @@ def evaluate(model, dataloader, device, batch_size=32):
     all_labels = []
     model.eval() #use to make predictions
     with torch.no_grad():
-        all_t_auc = dict()
-        all_t_bedroc = dict()
-        all_t_ef = dict()
+        all_t_auc = {}
+        all_t_bedroc = {}
+        all_t_ef = {}
 
         for target in dataloader.dataset.df['receptor'].unique():
             dataloader.dataset.set_mode(mode='single_target', target=target)
@@ -34,7 +34,7 @@ def evaluate(model, dataloader, device, batch_size=32):
             pred_vals = []
             label_vals = []
             for X_batch, y_batch in dataloader:
-                
+
                 X_batch, y_batch = X_batch.to(device), y_batch.to(device)
                 y_pred = model(X_batch)
                 y_pred = y_pred.cpu().detach().numpy()[:,0]
@@ -46,16 +46,16 @@ def evaluate(model, dataloader, device, batch_size=32):
             pred_vals = np.array(pred_vals)
             label_vals = np.array(label_vals)
             t_auc = calc_auc(pred_vals, label_vals)
-            all_t_auc.update({target:t_auc})
+            all_t_auc[target] = t_auc
             t_bedroc = calc_bedroc(pred_vals, label_vals)
-            all_t_bedroc.update({target:t_bedroc})
+            all_t_bedroc[target] = t_bedroc
             t_ef = calc_ef(pred_vals, label_vals)
-            all_t_ef.update({target:t_ef})
+            all_t_ef[target] = t_ef
             print("Finished evaluating: ", target)
 
             all_preds.extend(pred_vals)
             all_labels.extend(label_vals)
-        
+
     dataloader.dataset.set_mode(mode=prev_mode, target=prev_target)
 
     return {'all_preds':all_preds, 'all_labels':all_labels, 'all_t_auc':all_t_auc, 'all_t_bedroc':all_t_bedroc, 'all_t_ef':all_t_ef}
@@ -69,8 +69,7 @@ def calc_ef(y_pred, y_label, percent=.01):
     sorted_label = y_label[sort_idxs]
     len_top_percent = int(percent*tot_molecules)
     num_top_actives = len(np.where(sorted_label[:len_top_percent]==1)[0])
-    ef = (num_top_actives/len_top_percent)/(num_active/tot_molecules)
-    return ef
+    return (num_top_actives/len_top_percent)/(num_active/tot_molecules)
     
 def calc_auc(y_pred, y_label, plot_roc=False):
     fpr, tpr, _ = roc_curve(y_label,y_pred)
@@ -96,14 +95,13 @@ def calc_bedroc(y_pred, y_label, alpha=160.9):
     N = len(y_label) # total # of molecules
     sort_idxs = np.argsort(y_pred)[::-1] #in descending order
     sorted_label = y_label[sort_idxs]
-    rie_num_sum = []
-    for i in range(N):
-        if sorted_label[i] == 1:
-            rie_num_sum.append(np.exp(-alpha*(i+1)/N))
+    rie_num_sum = [
+        np.exp(-alpha * (i + 1) / N) for i in range(N) if sorted_label[i] == 1
+    ]
+
     rie_num = np.sum(rie_num_sum)
     rie_denom = n/N*((1-np.exp(-alpha))/(np.exp(alpha/N)-1))
     rie = rie_num / rie_denom
     rie_min = (1-np.exp(alpha*n/N))/(n/N*(1-np.exp(alpha)))
     rie_max = (1-np.exp(-alpha*n/N))/(n/N*(1-np.exp(-alpha)))
-    bedroc = (rie - rie_min) / (rie_max - rie_min)
-    return bedroc
+    return (rie - rie_min) / (rie_max - rie_min)

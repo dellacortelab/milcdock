@@ -49,10 +49,13 @@ class DockingClassifier(nn.Module):
         vec_len_dict = {'vina':4, 'rdock':14, 'ledock':4, 'plants':11, 'autodock':9}
         n = len(dock_tools)
         num_combinations = (n*(n-1)) // 2
-        input_vec_len = sum([vec_len_dict[tool] for tool in dock_tools]) + num_combinations
+        input_vec_len = (
+            sum(vec_len_dict[tool] for tool in dock_tools) + num_combinations
+        )
+
 
         self.dropout_prob = dropout
-        
+
         if activation == 'relu':
             self.act_func = nn.ReLU()
         elif activation == 'tanh':
@@ -61,7 +64,7 @@ class DockingClassifier(nn.Module):
             self.act_func = nn.Sigmoid()
         elif activation == 'selu':
             self.act_func = nn.SELU()
-            
+
         self.layer_1 = nn.Sequential(
             nn.Linear(input_vec_len, width),
             self.act_func,
@@ -73,14 +76,14 @@ class DockingClassifier(nn.Module):
             out_dim = width
             if i == 2:
                 out_dim = layer_4_dim
-            if i == 3:
+            elif i == 3:
                 in_dim = layer_4_dim
             self.hiddens.append(nn.Sequential(
                 nn.Linear(in_dim, out_dim),
                 self.act_func,
                 nn.Dropout(p=self.dropout_prob)
             ))
-            self.add_module('hidden_layer' + str(i), self.hiddens[-1])
+            self.add_module(f'hidden_layer{str(i)}', self.hiddens[-1])
         self.layer_out = nn.Sequential(
             nn.Linear(width, output_dim)
         )
