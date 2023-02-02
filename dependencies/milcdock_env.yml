@@ -1,0 +1,11 @@
+name: milcdock
+channels:
+  - conda-forge
+dependencies:
+  - mdanalysis=2.4.2
+  - numpy=1.21.2
+  - openbabel=3.1.1
+  - pandas=1.4.0
+  - scikit-learn=0.23.2
+  - bioconda::rxdock=2013.1.1_148c5bd1
+  - pytorch::pytorch==1.12.1

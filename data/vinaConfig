@@ -1,0 +1,10 @@
+center_x = XCOORD 
+center_y = YCOORD
+center_z = ZCOORD
+
+size_x = XSIZE
+size_y = YSIZE 
+size_z = ZSIZE
+
+exhaustiveness = EXHAUST
+num_modes = 20

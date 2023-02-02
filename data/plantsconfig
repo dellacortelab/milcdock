@@ -1,0 +1,23 @@
+# scoring function and search settings
+scoring_function chemplp
+search_speed speed1
+
+
+# input
+protein_file RECEPTOR
+ligand_list LIGANDS
+
+# output
+output_dir OUTPUT
+
+# write multi-mol2 file
+write_multi_mol2 1
+
+# binding site definition
+bindingsite_center XCOORD YCOORD ZCOORD
+bindingsite_radius RADIUS
+
+
+# cluster algorithm
+cluster_structures 20
+cluster_rmsd 2.0

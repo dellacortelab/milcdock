@@ -1,0 +1,233 @@
+
+
+python3 ensemble_dock_figures.py --model_name vina_top_score rdock_top_score plants_top_score ledock_top_score autodock_top_score dude-lit-pcba_90 dude-lit-pcba_ensemble dude_ensemble --eval_targets test --dataset dude-lit-pcba --test_fig fig_3
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_no_rdock_no_autodock_ensemble --eval_targets test --dataset lit-pcba --test_fig fig_4
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble --eval_targets test --dataset lit-pcba --test_fig fig_4
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_no_rdock_no_autodock --dataset lit-pcba --eval_targets test --no_wandb --test_fig fig_1
+
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba_no_rdock_no_autodock.pt --dataset lit-pcba --device 0 --eval_targets test --no_wandb --dock_tools vina ledock plants
+
+python3 ensemble_dock_test.py --model_name dude-lit-pcba_no_rdock_no_autodock --dataset lit-pcba --eval_targets test --no_wandb --test_fig fig_1
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_no_rdock_no_autodock_ensemble --dataset dude-lit-pcba --test_fig fig_1 --eval_targets test
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_no_rdock_no_autodock_ensemble --dataset dude-lit-pcba --test_fig fig_1 --eval_targets test
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba_no_rdock_no_autodock.pt --dataset cache --fold_range 0 8 --model_name_suffix ensemble --device 0 --eval_targets test --dock_tools vina ledock plants
+
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba_no_rdock_no_autodock.pt --dataset dude-lit-pcba --fold_range 0 8 --model_name_suffix ensemble --device 0 --eval_targets test --dock_tools vina ledock plants 
+
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba_no_vina.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble no_vina --dock_tools rdock ledock plants autodock 
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba_no_rdock.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble no_rdock --dock_tools vina ledock plants autodock
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba_no_ledock.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble no_ledock --dock_tools vina rdock plants autodock 
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba_no_plants.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble no_plants --dock_tools vina rdock ledock autodock 
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba_no_autodock.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble no_autodock --dock_tools vina rdock ledock plants
+
+
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble dude_lit-pcba_ensemble dude_ensemble --dataset dude-lit-pcba --test_fig fig_1 --eval_targets test
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble dude lit-pcba plants_top_score --dataset dude --test_fig fig_1 --eval_targets test
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble dude lit-pcba plants_top_score --dataset lit-pcba --test_fig fig_1 --eval_targets test
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble dude-lit-pcba_90 --dataset dude-lit-pcba --test_fig fig_3 --eval_targets test
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble plants_top_score --dataset dude-lit-pcba dude lit-pcba --test_fig fig_4 --eval_targets test
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble 
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba.pt --dataset dude --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude-lit-pcba.pt --dataset lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble 
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude.pt --dataset dude-lit-pcba --device 0 --eval_targets test
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude.pt --dataset dude --device 0 --eval_targets test 
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude.pt --dataset lit-pcba --device 0 --eval_targets test 
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/lit-pcba.pt --dataset dude-lit-pcba --device 0 --eval_targets test
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/lit-pcba.pt --dataset dude --device 0 --eval_targets test 
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/lit-pcba.pt --dataset lit-pcba --device 0 --eval_targets test 
+
+
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/dude.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/lit-pcba.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 0 --dock_tools vina rdock
+
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --dock_tools vina rdock ledock autodock --model_name_suffix ensemble no_plants
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --dock_tools vina rdock ledock plants --model_name_suffix ensemble no_autodock
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --dock_tools vina rdock autodock plants --model_name_suffix ensemble no_ledock
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --dock_tools vina ledock autodock plants --model_name_suffix ensemble no_rdock
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba.pt --dataset dude-lit-pcba --fold_range 0 8 --device 0 --eval_targets test --dock_tools rdock ledock autodock plants --model_name_suffix ensemble no_vina
+
+
+
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba_90.pt --dataset dude-lit-pcba --device 1 --eval_targets test
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble --dataset dude-lit-pcba --test_fig fig_4 --eval_targets test
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_ensemble dude-lit-pcba_90 --dataset dude-lit-pcba --test_fig fig_3 --eval_targets test
+
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_0_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_1_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_2_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_3_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_4_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_5_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_6_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_7_ledock_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools ledock plants
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_0_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools vina ledock autodock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_1_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools vina ledock autodock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_2_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools vina ledock autodock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_3_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools vina ledock autodock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_4_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools vina ledock autodock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_5_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools vina ledock autodock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_6_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools vina ledock autodock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_7_no_rdock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools vina ledock autodock plants
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_0_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 10 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools ledock autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_1_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 11 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools ledock autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_2_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 12 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools ledock autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_3_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 13 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools ledock autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_4_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 14 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools ledock autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_5_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 15 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools ledock autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_6_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 8 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools ledock autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_7_no_vina.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 9 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools ledock autodock plants rdock
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_0_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools vina autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_1_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools vina autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_2_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools vina autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_3_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools vina autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_4_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools vina autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_5_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools vina autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_6_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools vina autodock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_7_no_ledock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools vina autodock plants rdock
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_0_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools vina ledock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_1_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools vina ledock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_2_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools vina ledock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_3_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools vina ledock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_4_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools vina ledock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_5_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools vina ledock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_6_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools vina ledock plants rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_7_no_autodock.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools vina ledock plants rdock
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_0_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools vina ledock autodock rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_1_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools vina ledock autodock rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_2_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools vina ledock autodock rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_3_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools vina ledock autodock rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_4_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools vina ledock autodock rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_5_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools vina ledock autodock rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_6_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools vina ledock autodock rdock
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_7_no_plants.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools vina ledock autodock rdock
+
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_0.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_1.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_2.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_3.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_4.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_5.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_6.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_7.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools vina ledock plants
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock.pt --train_dataset dude --val_dataset lit-pcba --device 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools vina ledock plants
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_1.pt --train_dataset dude-lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_2.pt --train_dataset dude-lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_3.pt --train_dataset dude-lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_4.pt --train_dataset dude-lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_5.pt --train_dataset dude-lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_6.pt --train_dataset dude-lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_7.pt --train_dataset dude-lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools vina ledock plants
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_0.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_0
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_1.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_1
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_2.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_2
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_3.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_3
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_4.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_4
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_5.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_5
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_6.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_6
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude_fold_7.pt --train_dataset dude --val_dataset dude dude-lit-pcba lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name dude_fold_7
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_0.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_0
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_1.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_1
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_2.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_2
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_3.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_3
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_4.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_4
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_5.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_5
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_6.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_6
+python3 ensemble_dock_train.py --model_save_path ./results/models/lit-pcba_fold_7.pt --train_dataset lit-pcba --val_dataset lit-pcba dude-lit-pcba dude --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name lit-pcba_fold_7
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_1.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_2.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_3.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_4.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_5.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_6.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_fold_7.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7
+
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_0.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 0 --fold 0 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_0 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_1.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 1 --fold 1 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_1 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_2.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 2 --fold 2 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_2 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_3.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 3 --fold 3 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_3 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_4.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 4 --fold 4 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_4 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_5.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 5 --fold 5 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_5 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_6.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 6 --fold 6 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_6 --dock_tools vina ledock plants
+python3 ensemble_dock_train.py --model_save_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_7.pt --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --device 7 --fold 7 --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --run_name fold_7 --dock_tools vina ledock plants
+
+python3 oversample_df.py --input /data/dude-lit-pcba.pkl --out /data/dude-lit-pcba_xgboost_80k.pkl
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/classical_ml/dude-lit-pcba_xgboost.pkl --train_dataset dude-lit-pcba-xgboost-oversampled --model_type xgboost --device 0
+
+python3 ensemble_dock_train.py --model_save_path ./results/models/classical_ml/dude-lit-pcba_naive_consensus.pkl --train_dataset dude-lit-pcba --model_type naive_consensus --device 0
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/classical_ml/dude-lit-pcba_naive_consensus.pkl ./results/saved_models/classical_ml/dude-lit-pcba_xgboost.pkl --dataset dude-2 --device 0 --eval_targets test
+
+python3 ensemble_dock_test.py --model_load_path ./results/saved_models/ensemble_mlp/dude-lit-pcba.pt --dataset dude-2 --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble
+
+python3 ensemble_dock_figures.py --model_name vina_top_score rdock_top_score plants_top_score ledock_top_score autodock_top_score dude-lit-pcba_naive_consensus dude-lit-pcba_xgboost dude-lit-pcba dude-lit-pcba_ensemble --eval_targets test --dataset dude-2 --test_fig fig_3
+
+python3 ensemble_dock_test.py --model_load_path ./results/models/dude-lit-pcba_no_rdock_no_autodock_fold_0.pt --dataset dude-2 --device 0 --eval_targets test
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_no_rdock_no_autodock_fold_0 --eval_targets test --dataset dude-2 --test_fig fig_3
+
+
+
+python3 ensemble_dock_test.py --model_load_path ./results/models/ensemble_mlp/dude-lit-pcba_no_rdock_no_autodock.pt --dataset cache-2 --fold_range 0 8 --device 0 --eval_targets test --model_name_suffix ensemble --dock_tools vina ledock plants
+
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba_no_rdock_no_autodock_ensemble --eval_targets test --dataset cache-2 --test_fig fig_3
+
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --model_load_path ./results/saved_models/classical_ml/dude-lit-pcba_naive_consensus.pkl ./results/saved_models/classical_ml/dude-lit-pcba_xgboost.pkl
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --model_load_path ./results/saved_models/mlp/dude-lit-pcba.pt 
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --model_load_path ./results/saved_models/ensemble_mlp/dude-lit-pcba --model_name_suffix ensemble 
+python3 ensemble_dock_figures.py --eval_targets test --dataset dude-lit-pcba --test_fig fig_3 --no_wandb --model_name vina_top_score rdock_top_score plants_top_score ledock_top_score autodock_top_score dude-lit-pcba_naive_consensus dude-lit-pcba_xgboost dude-lit-pcba dude-lit-pcba_ensemble
+
+
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --model_load_path ./results/saved_models/mlp/dude-lit-pcba.pt 
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --model_load_path ./results/saved_models/ensemble_mlp/dude-lit-pcba --model_name_suffix ensemble 
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --replace_unbiased_features_with_mean --model_load_path ./results/saved_models/mlp/dude-lit-pcba.pt --model_name_suffix unbiased_feature_means 
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --replace_unbiased_features_with_mean --model_load_path ./results/saved_models/ensemble_mlp/dude-lit-pcba --model_name_suffix unbiased_feature_means ensemble
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --drop_unbiased_features --model_load_path ./results/saved_models/mlp/dude-lit-pcba_no_unbiased.pt
+python3 ensemble_dock_test.py --dataset dude-lit-pcba --device 0 --eval_targets test --no_wandb --drop_unbiased_features --model_load_path ./results/saved_models/ensemble_mlp/dude-lit-pcba_no_unbiased --model_name_suffix ensemble
+python3 ensemble_dock_figures.py --model_name dude-lit-pcba dude-lit-pcba_ensemble dude-lit-pcba_unbiased_feature_means dude-lit-pcba_unbiased_feature_means_ensemble dude-lit-pcba_no_unbiased dude-lit-pcba_no_unbiased_ensemble --eval_targets test --dataset dude-lit-pcba --test_fig fig_3 --no_wandb
+
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_0 --device 0 --fold 0 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_0.pt
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_1 --device 1 --fold 1 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_1.pt
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_2 --device 2 --fold 2 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_2.pt
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_3 --device 3 --fold 3 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_3.pt
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_4 --device 4 --fold 4 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_4.pt
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_5 --device 5 --fold 5 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_5.pt
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_6 --device 6 --fold 6 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_6.pt
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name fold_7 --device 7 --fold 7 --model_save_path ./results/models/dude-lit-pcba_no_unbiased_fold_7.pt
+
+python3 ensemble_dock_train.py --train_dataset dude-lit-pcba --val_dataset dude-lit-pcba dude lit-pcba --dropout .4 --weight_gain 1.0 --activation selu --layer_4_dim 64 --weight_decay 1e-6 --drop_unbiased_features --run_name dude-lit-pcba-unbiased --device 0 --model_save_path ./results/models/dude-lit-pcba_no_unbiased.pt
+
+
+
+python3 ensemble_dock_test.py --dataset cache_2 --device 0 --eval_targets test --no_wandb --model_load_path ./results/saved_models/ensemble_mlp/dude-lit-pcba_no_rdock_no_autodock --dock_tools vina ledock plants --model_name_suffix ensemble

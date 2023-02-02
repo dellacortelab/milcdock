@@ -1,0 +1,26 @@
+Dependencies needed to run machine learning-enhanced molecular docking. 
+Python libraries -- install with: conda env create -f ml_dock.yml
+Docking programs:
+Vina 1.1.2
+    Download files and instructions for the version we used in training at: https://vina.scripps.edu/downloads/
+    The latest version can be downloaded from GitHub: https://github.com/ccsb-scripps/AutoDock-Vina/releases
+Ledock v1.0
+    Download LeDock and LePro from: http://www.lephar.com/download.htm
+    After downloading, rename the downloaded files and give executable permission by running:
+    mv ledock_linux_x86 ledock
+    mv lepro_linux_x86 lepro
+    chmod +x ledock
+    chmod +x lepro
+rxDock
+    Install with Conda using ml_dock.yml
+Autodock v4.2.6
+    Download executables from https://autodock.scripps.edu/download-autodock4/
+Plants v1.2
+    Agree to license and download executable from http://www.tcd.uni-konstanz.de/plants_download/
+
+Other software:
+MGLTools (MUST BE VERSION 1.5.6, version 1.5.7 causes errors) 
+    Used for running both Autodock4 and Vina
+    Download from https://ccsb.scripps.edu/mgltools/downloads/, then follow instructions to install. 
+
+The path to the directories containing program's executable must be added to docking/config.sh.
