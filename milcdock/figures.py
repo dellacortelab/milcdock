@@ -23,7 +23,7 @@ def get_prec_rec(scores, labels):
 def make_hist(preds, labels, receptors):
     preds, labels = np.array(preds), np.array(labels)
 
-    target_list = ['reni', 'igf1r', 'glcm', 'fgf1r']
+    target_list = ['reni', 'igf1r', 'glcm', 'fgfr1']
 
     # results_df, plot_dict = load_files(plot_dict_path, dataset_scores_path)
 
