@@ -1,4 +1,4 @@
-# MILCDock# MILCDock
+# MILCDock
 
 <img src="https://github.com/dellacortelab/milcdock/blob/main/results/figures/reni_dude-lit-pcba_ensemble_hist.png" alt="drawing" width="500"/>
 
