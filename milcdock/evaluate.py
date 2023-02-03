@@ -14,11 +14,13 @@ def evaluate(model_save_path, dataloader, batch_size, device):
     model = get_saved_model(model_path=model_save_path, device=device)
     
     criterion = nn.BCEWithLogitsLoss()
-    model.eval() #use to make predictions
+    model.eval() #use to make predictions	
     with torch.no_grad():
         all_t_auc = dict()
         all_t_bedroc = dict()
         all_t_ef = dict()
+        all_preds = []	
+        all_labels = []
 
         prev_mode = dataloader.dataset.mode
         prev_target = dataloader.dataset.target
@@ -65,6 +67,9 @@ def evaluate(model_save_path, dataloader, batch_size, device):
             all_t_bedroc.update({target:t_bedroc})
             _,t_ef = calc_ef(pred_vals, label_vals, return_fraction=True)
             all_t_ef.update({target:t_ef})
+            
+            all_preds.extend(pred_vals)	
+            all_labels.extend(label_vals)
 
         if num_examples == 0:
             return {'loss':0., 'acc':0., 'all_t_auc':{'tmp':0.}, 'all_t_bedroc':{'tmp':0.}, 'all_t_ef':{'tmp':0.}}
@@ -77,7 +82,7 @@ def evaluate(model_save_path, dataloader, batch_size, device):
     model.train()
 
 
-    return {'loss':loss, 'acc':acc, 'all_t_auc':all_t_auc, 'all_t_bedroc':all_t_bedroc, 'all_t_ef':all_t_ef}
+    return {'all_preds':all_preds, 'all_labels':all_labels, 'loss':loss, 'acc':acc, 'all_t_auc':all_t_auc, 'all_t_bedroc':all_t_bedroc, 'all_t_ef':all_t_ef}
 
 # Metrics
 def binary_acc(y_pred, y_test):

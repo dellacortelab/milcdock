@@ -23,8 +23,7 @@ def get_prec_rec(scores, labels):
 def make_hist(preds, labels, receptors):
     preds, labels = np.array(preds), np.array(labels)
 
-    model_name = 'dude-lit-pcba_ensemble'
-    target_list = ['reni', 'igf1r', 'ALDH1', 'GBA']
+    target_list = ['reni', 'igf1r', 'glcm', 'fgf1r']
 
     # results_df, plot_dict = load_files(plot_dict_path, dataset_scores_path)
 
