@@ -43,7 +43,7 @@ The intended workflow for dependency management is [Docker](https://www.docker.c
 # Create a docker image with the necessary dependencies (NOTE: Make sure to accept the terms of the PLANTS academic license at the PLANTS website: http://www.tcd.uni-konstanz.de/plants_download/)
 docker build -t milcdock -f dependencies/Dockerfile dependencies
 # Run a docker container
-docker run -dit --gpus all --name docking -v $(pwd):/code milcdock
+docker run -dit --gpus all --name docking --rm -v $(pwd):/code milcdock
 docker exec -it docking /bin/bash
 ```
 
