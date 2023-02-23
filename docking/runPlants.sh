@@ -87,11 +87,9 @@ for rec in ${all_recs[@]}; do
     fi
     cd $full_out_path
     lig_list="./ligands.txt"
-    if ! [ -f $lig_list ]; then
-        for lig in ${all_ligs[@]}; do
-            echo $lig >> $lig_list
-        done
-    fi
+    for lig in ${all_ligs[@]}; do
+        echo $lig >> $lig_list
+    done
     cp $plants_config ./$rec_config
     cp $rec .
 
@@ -118,8 +116,7 @@ for rec in ${all_recs[@]}; do
 
     #Perform docking with PLANTS
     echo "Starting docking calculations on ${rec_basename}"
-    echo $rec_config
-    exit
+    #cat $rec_config
     plants --mode screen $rec_config
     cd -
 done
