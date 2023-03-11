@@ -120,8 +120,9 @@ class DockingDataset(Dataset):
             for tool in drop_tools_list:
                 if tool in col:
                     del_cols.append(col)
+        del_cols += ['RMSD_avg', 'avg_RMSD_<_2']
         orig_len = len(df.columns)
-        self.df = df.drop(del_cols,axis=1).sort_values('receptor')
+        self.df = df.drop(del_cols, axis=1).sort_values('receptor')
         new_len = len(self.df.columns)
         print(f'{orig_len - new_len} columns dropped')
 
@@ -172,7 +173,6 @@ class DockingDataset(Dataset):
         self.current_df = self.current_df.reset_index(drop=True)
 
     def __getitem__(self, i):
-        
         if self.label_available:
             item = self.current_df.iloc[i, 3:-1]
             item = np.array(item).astype(np.float32)
@@ -241,7 +241,7 @@ def get_dataloader(batch_size=32, balance_data=True, shuffle=True, drop_last=Fal
             dataset,
             batch_size=batch_size,
             shuffle=shuffle,
-            num_workers=16,
+            # num_workers=16,
             pin_memory=True,
             drop_last=drop_last
         )
